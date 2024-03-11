@@ -52,7 +52,8 @@ export default class Nation {
 	}
 
 	claim(coords, size = 0.72, cost = 1) {
-		if (this.culture < cost) return false;
+		if (this.borders.get(coords) >= size) return false; // already have border there
+		if (this.culture < cost) return false; // cannot afford
 		this.culture -= cost;
 		this.borders.set(coords, size);
 		return true;

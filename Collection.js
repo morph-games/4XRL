@@ -32,7 +32,7 @@ export default class Collection extends Map {
 	}
 
 	getKeys() {
-		return this.keys().toArray();
+		return Array.from(this.keys());
 	}
 
 	findAt(coords = []) {
