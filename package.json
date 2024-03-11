@@ -1,0 +1,28 @@
+{
+  "name": "4xrl",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A 4X Roguelike for 7DRL 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vite dev",
+    "build": "vite build"
+  },
+  "keywords": [
+    "7DRL",
+    "Roguelike",
+    "Game",
+    "4X"
+  ],
+  "author": "Luke",
+  "license": "MIT",
+  "devDependencies": {
+    "rocket-boots-eslint": "github:rocket-boots/rocket-boots-eslint",
+    "vite": "^5.1.5"
+  },
+  "dependencies": {
+    "rocket-utility-belt": "github:rocket-boots/rocket-utility-belt#semver:v0.3.2",
+    "roguelike-fonts": "github:rocket-boots/roguelike-fonts"
+  }
+}

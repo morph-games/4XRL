@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Civilized Rogues - 4XRL - A Roguelike 4X Game for 7DRL 2024</title>
+		<meta charset="utf-8">
+		<script type="module" src="game.js"></script>
+		<link href="styles.css" rel="stylesheet" />
+	</head>
+	<body>
+		<main>
+			<div id="top-bar">
+				<div><span title="food">🌾</span><span id="stats-food">_</span></div>
+				<div><span title="production">⚙️</span><span id="stats-production">_</span></div>
+				<div><span title="science">🧪</span><span id="stats-science">_</span></div>
+				<div><span title="culture">🎭</span><span id="stats-culture">_</span></div>
+				<div><span title="gold">🪙</span><span id="stats-gold">_</span></div>
+				<div class="top-title">4XRL Civilized Rogues v1.0.0</div>
+			</div>
+			<div id="map">
+				<div id="map-terrain"></div>
+				<canvas id="map-borders-fill"></canvas>
+				<canvas id="map-borders"></canvas>
+				<div id="map-cities"></div>
+				<div id="map-districts"></div>
+				<div id="map-resources"></div>
+				<div id="map-units"></div>
+				<canvas id="map-player-fog" class="fog"></canvas>
+				<div id="map-flags"></div>
+			</div>
+			<div id="actions">
+				<ul class="action-list">
+					<li><button type="button" class="flag-E">Explore</button></li>
+					<li><button type="button" class="flag-F">Harvest</button></li>
+					<li><button type="button" class="flag-W">Advance</button></li>
+					<li><button type="button" class="flag-M">Caravan</button></li>
+					<li><button type="button" class="flag-A">Celebrate</button></li>
+					<li><button type="button" class="flag-S">Experiment</button></li>
+				</ul>
+				<div class="direction-actions">
+					<div id="direction-action-text"></div>
+					<div>
+						<button type="button" class="dir-up-left">↖️</button>
+						<button type="button" class="dir-up">⬆️</button>
+						<button type="button" class="dir-up-right">↗️</button>
+					</div>
+					<div>
+						<button type="button" class="dir-left">⬅️</button>
+						<button type="button" class="dir-none">🎯</button>
+						<button type="button" class="dir-right">➡️</button>
+					</div>
+					<div>
+						<button type="button" class="dir-down-left">↙️</button>
+						<button type="button" class="dir-down">⬇️</button>
+						<button type="button" class="dir-down-right">↘️</button>
+					</div>
+				</div>
+				<!--
+				<ul class="action-list">
+					<li><button type="button" class="target-W">Attack</button></li>
+					<li><button type="button" class="target-M">Bribe</button></li>
+					<li><button type="button" class="capture-M">Capture</button></li>
+					<li><button type="button" class="build-district">Build District</button></li>
+					<li><button type="button" class="build-city">Build City</button></li>
+				</ul>
+				-->
+				<div>
+					<button type="button" class="move-wait">⏳<br>Wait</button>
+				</div>
+			</div>
+			<div id="tips">
+				Pick an action then a direction to set a flag. Or just pick a direction to move.
+			</div>
+			<section id="game-over">
+				<h1>Game Over</h1>
+				<div>💀</div>
+				<div>
+					Congratulations - You died!
+				</div>
+				<div>
+					<a href="#" onclick="window.location.reload()">Refresh the page</a> to play again.
+				</div>
+			</section>
+			<section id="game-won">
+				<h1>Game Won</h1>
+				<div>🥳</div>
+				<div>
+					Congratulations - You won!
+				</div>
+				<div>
+					<a href="#" onclick="window.location.reload()">Refresh the page</a> to play again.
+				</div>
+			</section>
+			<section id="info">
+				<div id="info-content">
+					<!-- fill in with js -->
+				</div>
+				<footer>
+					<button type="button" class="close-button">Close</button>
+				</footer>
+			</section>
+			<section id="city-view">
+				<div id="city-info-content">
+					<!-- fill in with js -->
+				</div>
+				<div id="city-interface">
+					<!-- fill in with js -->
+				</div>
+				<footer>
+					<button type="button" class="close-button">Close</button>
+				</footer>
+			</section>
+		</main>
+	</body>
+</html>
