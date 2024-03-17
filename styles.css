@@ -12,6 +12,7 @@ body {
 	background: #391513;
 	--map-size: 20;
 	--cell-size: calc(60vh / var(--map-size));
+	--map-width: calc(var(--cell-size) * var(--map-size));
 	margin: 0;
 	--food-color: #5b8a2c;
 	--production-color: #ff7700;
@@ -22,7 +23,8 @@ body {
 }
 main {
 	max-height: 100vh;
-	max-width: 100vw;
+	max-width: calc(1.5 * var(--map-width));
+	margin: 0 auto;
 	overflow: auto;
 }
 button {
@@ -68,7 +70,7 @@ button:disabled {
 #map {
 	margin: 1vmin auto;
 	position: relative;
-	width: calc(var(--cell-size) * var(--map-size));
+	width: var(--map-width);
 }
 #map > div,
 #map > canvas {
@@ -290,9 +292,10 @@ button:disabled {
 #city-view {
 	display: flex;
 	position: absolute;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
+	top: 2em;
+	width: var(--map-width);
+	max-width: 100vw;
+	height: calc(100vh - 2em);
 	/* background: #391513; */
 	background: #405b3e;
 	color: #dfd6ca;
@@ -303,12 +306,18 @@ button:disabled {
 	transform: scale(0);
 	opacity: 0;
 	transition: all 0.2s;
-	font-size: calc(10px + 1vmin);
+	font-size: calc(13px + 0.5vmax);
 	padding: 1em;
 	box-sizing: border-box;
 	line-height: 1.5em;
 	overflow: hidden;
 	border-radius: 2em;
+}
+#info {
+	left: 0;
+}
+#city-view {
+	right: 0;
 }
 #info-content,
 #city-info-content {
@@ -356,18 +365,21 @@ button:disabled {
 #city-upgrade-list {
 	transform: scale(0);
 	max-height: 0;
+	margin: 0;
 }
 
 #show-build-list:checked ~ #city-build-list,
 #show-upgrade-list:checked ~ #city-upgrade-list {
 	transform: scale(1);
 	max-height: 100vh;
+	margin: 2em 0;
 }
 
 #city-build-list li,
 #city-upgrade-list li {
 	display: flex;
 	justify-content: space-between;
+	min-height: 3em;
 }
 
 input[type=radio] {
