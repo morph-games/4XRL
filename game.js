@@ -137,6 +137,10 @@ function setupWorld() {
 }
 
 function spawnUnitFlag(unit, type, coords) {
+	if (!map.inBounds(coords[0], coords[1])) {
+		console.warn('Cannot create flag here');
+		return;
+	}
 	flags.addNew(unit.nationId, type, [unit.nationalClass], coords);
 }
 
