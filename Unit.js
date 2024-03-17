@@ -43,6 +43,10 @@ export default class Unit extends MapEntity {
 		this.commandQueue.length = 0;
 	}
 
+	hasCommands() {
+		return (this.commandQueue.length > 0);
+	}
+
 	getSkill(skillName) {
 		return (UNIT_TYPES[this.type][skillName] || 0) + (this.tier - 1);
 	}

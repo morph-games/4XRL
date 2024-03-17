@@ -29,7 +29,6 @@ const map = new Map(MAP_SIZE, MAP_SIZE, TILE_SIZE);
 let selectedAction = '';
 const game = {
 	turn: 0,
-	turnsToDo: 0,
 	nations,
 	cities,
 	districts,
@@ -315,10 +314,6 @@ function enemyCheat() {
 }
 
 async function advanceTurn() {
-	if (game.turnsToDo <= 0) {
-		console.warn('No more turns left');
-		return;
-	}
 	// First - Do player/leader's turn
 	await doUnitTurn(game.pc);
 	renderUnit(game.pc);
@@ -340,7 +335,7 @@ async function advanceTurn() {
 	flags.update();
 	game.turn += 1;
 	renderAll();
-	game.turnsToDo -= 1;
+	checkGameOver();
 }
 
 function checkGameOver() {
@@ -355,12 +350,10 @@ function checkGameOver() {
 	mainElt.classList.add('game-over');
 }
 
-async function advanceTurns(n = 0) {
+async function advanceTurns(count = 0) {
 	checkGameOver();
-	game.turnsToDo += n;
 	await advanceTurn();
-	if (game.turnsToDo > 0) await advanceTurns();
-	checkGameOver();
+	if (game.pc.hasCommands() || count > 10) await advanceTurns((count + 1));
 }
 
 function getCellSize() {
