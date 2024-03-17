@@ -134,7 +134,6 @@ export default {
 		cost: {
 			production: 1,
 			culture: 1,
-			science: 1,
 		},
 	},
 };
