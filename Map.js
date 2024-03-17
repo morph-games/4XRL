@@ -30,8 +30,8 @@ export default class Map {
 		return this.terrain.forEachCell(cellFn, rowStartFn, rowEndFn);
 	}
 
-	inBounds(x, y) {
-		return this.terrain.inBounds(x, y);
+	inBounds(...coordinateArgs) {
+		return this.terrain.inBounds(...coordinateArgs);
 	}
 
 	getTerrainTypeObject(coords) {
@@ -39,6 +39,7 @@ export default class Map {
 	}
 
 	isLand(coords) {
+		if (!this.inBounds(coords)) return false;
 		const typeObj = this.getTerrainTypeObject(coords);
 		return typeObj.land;
 	}
